@@ -10,8 +10,25 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/list',
       templateUrl: 'app/list/list.html',
       controller: 'ListController',
-      controllerAs: 'list'
+      controllerAs: 'list',
+      resolve: {
+        weeks: function($q, firebaseService){
+          return $q.resolve(firebaseService.getWeeks());
+        }
+      }
+      // resolve: {
+      //   weeks: function(firebaseService){
+      //     // const defer = $q.defer();
+      //     // firebaseService.getWeeks().then( (resp) => {
+      //     //   defer.resolve(resp);
+      //     // });
+      //     // return defer.promise;
+      //     return firebaseService.getWeeks();
+      //   }
+      // }
     });
 
   $urlRouterProvider.otherwise('/');
 }
+
+
