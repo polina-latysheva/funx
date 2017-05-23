@@ -1,6 +1,7 @@
 export class FirebaseService {
   constructor ($window) {
     'ngInject';
+    this.$window = $window;
     const fb_config = {
       apiKey: "AIzaSyBR-uc9qYYYYDbm3iALzGDebPQn3Uk0N18",
       authDomain: "fundex-9d689.firebaseapp.com",
@@ -19,6 +20,12 @@ export class FirebaseService {
       return {
         weeks: weeksArray
       }
+    });
+  }
+
+  edit(week, user, val) {
+    this.db.ref('/').child('weeks').child(week).child(user).set(val).then( () => {
+      this.$window.location = '/list';
     });
   }
 }

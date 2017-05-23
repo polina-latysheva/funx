@@ -5,6 +5,7 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
 import { ListController } from './list/list.controller';
+import { EditController } from './edit/edit.controller';
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
@@ -23,5 +24,6 @@ angular.module('fundex', ['ngTouch', 'ngAria', 'ngResource', 'ui.router', 'toast
   .service('firebase', FirebaseService)
   .controller('MainController', MainController)
   .controller('ListController', ListController)
+  .controller('EditController', EditController)
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);

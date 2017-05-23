@@ -1,0 +1,5 @@
+h3 Add new score to your Week
+
+label Week {{ edit.currentWeek}}
+input(placeholder="" ng-model="edit.score" type="number" min="1" max="10" step="1")
+button(ng-click="edit.add(edit.score)" type="submit" data-ng-disable="!!edit.score" ) Submit
